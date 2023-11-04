@@ -33,6 +33,8 @@ data = # ... (numpy array with shape [n_samples, n_features + 1])
 # Apply VR-SMOTE
 balanced_data = vr_smote(data)
 
+```
+
 Please ensure your data is preprocessed accordingly, with numerical features and a binary target variable indicating class membership.
 
 ## Example
