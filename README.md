@@ -1,51 +1,52 @@
-VR-SMOTE Implementation
-This repository contains the Python implementation of the Variance Reduction Synthetic Minority Over-sampling Technique (VR-SMOTE), a novel approach to handling data imbalance in machine learning datasets. The technique is particularly suited for datasets where the minority class is under-represented, and traditional over-sampling methods like SMOTE may lead to overfitting.
+# Variance Reduction SMOTE (VR-SMOTE)
 
-Overview
-VR-SMOTE addresses the shortcomings of the traditional SMOTE algorithm by first clustering the minority class samples using K-Nearest Neighbors and then selectively applying SMOTE to clusters with medium and high variance. This ensures that synthetic samples are only generated where necessary, thus preventing overfitting and enhancing model generalization.
+This repository contains a Python implementation of the Variance Reduction Synthetic Minority Over-sampling Technique (VR-SMOTE), which is an enhanced version of the Synthetic Minority Over-sampling Technique (SMOTE). The VR-SMOTE aims to improve dataset balancing by strategically oversampling minority class instances in a way that reduces variance and prevents overfitting.
 
-Prerequisites
-Before you begin, ensure you have met the following requirements:
+## Background
 
-You have installed Python 3.6 or above.
-You have installed the necessary Python packages found in requirements.txt.
-Installation
-Clone the repository to your local machine:
+Traditional SMOTE techniques can sometimes lead to overfitting when they oversample the minority class without considering the variance within the data. VR-SMOTE addresses this by first clustering the minority class samples using K-Nearest Neighbors (KNN) and then calculating a relative variance score (RV score) for each cluster. Clusters with high and medium variance are then oversampled, while clusters with low variance are not, in an effort to maintain a balanced variance across the dataset.
 
-bash
-Copy code
-git clone https://github.com/your-github-username/vr-smote.git
-cd vr-smote
-Install the required packages:
+## Requirements
 
-bash
-Copy code
+Before running this code, you'll need to install the required Python libraries. You can do this by running:
+
 pip install -r requirements.txt
-Usage
-The main logic of the VR-SMOTE method is encapsulated in the vr_smote.py script. To apply VR-SMOTE to your dataset, follow these steps:
 
-Prepare your dataset in a CSV format where the last column represents the class labels.
-Load your dataset into a Python script or a Jupyter notebook.
-Import and invoke the VR-SMOTE function:
-python
-Copy code
+
+This will install the following packages:
+
+- numpy
+- scikit-learn
+- imbalanced-learn
+
+## Usage
+
+The main function in `vr_smote.py` can be used as follows:
+
+```python
 from vr_smote import vr_smote
 
-# Assume `data` is your loaded dataset
+# Load your data
+data = # ... (numpy array with shape [n_samples, n_features + 1])
+# The last column in `data` should be the class/target variable
+
+# Apply VR-SMOTE
 balanced_data = vr_smote(data)
-Use the balanced_data for training your machine learning models.
-Contributing
-Contributions to this project are welcome! To contribute:
 
-Fork the repository.
-Create a new branch for your feature (git checkout -b feature/AmazingFeature).
-Commit your changes (git commit -m 'Add some AmazingFeature').
-Push to the branch (git push origin feature/AmazingFeature).
-Open a pull request.
-License
-Distributed under the MIT License. See LICENSE for more information.
+Please ensure your data is preprocessed accordingly, with numerical features and a binary target variable indicating class membership.
 
-Contact
-Your Name - @your_twitter - email@example.com
+## Example
+To run an example with synthetic data, you can use the script example.py:
 
-Project Link: https://github.com/your-github-username/vr-smote
+python example.py
+
+This will generate a synthetic dataset, apply VR-SMOTE, and print the shapes of the original and balanced datasets.
+
+## Contributing
+Contributions to this project are welcome. Please fork the repository and submit a pull request with your changes.
+
+## License
+This project is open-sourced under the MIT License. See the LICENSE file for details.
+
+## Citation
+If you use this method in your research, please cite the following paper:
