@@ -52,3 +52,4 @@ This project is open-sourced under the MIT License. See the LICENSE file for det
 
 ## Citation
 If you use this method in your research, please cite the following paper:
+Karkaria, V., Chen, J., Siuta, C., Lim, D., Radelescu, R., & Chen, W. (2023). A MACHINE LEARNING BASED TIRE LIFE PREDICTION FRAMEWORK FOR INCREASING LIFE OF COMMERCIAL VEHICLE TIRES. Journal of Mechanical Design, 1-21.
